@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = () => launchUrl(
                                     Uri.parse(
-                                        'https://koda-christian.github.io/bigeye'),
+                                        'https://koda-christian.github.io/BigEye/'),
                                     mode: LaunchMode.inAppBrowserView,
                                   ),
                           ),

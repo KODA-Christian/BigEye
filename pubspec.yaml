@@ -1,5 +1,6 @@
 name: bigeye
 description: Flutter mobile app to save WhatsApp stories.
+repository: https://github.com/KODA-Christian/BigEye
 publish_to: 'none'
 
 version: 1.0.0+1
