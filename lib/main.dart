@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
@@ -7,6 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 // ignore: constant_identifier_names
 const APP_NAME = "Big Eye";
+const dFolder =
+    '/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/.Statuses/';
 
 void main() {
   runApp(const MyApp());
@@ -124,8 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       builder: (context) {
                         return AlertDialog(
                           title: const Text("Access to Files"),
-                          content: SingleChildScrollView(
-                            child: const Text(
+                          content: const SingleChildScrollView(
+                            child: Text(
                                 "This application does not collect, share, or transmit any personal information. It does not use any third-party services or networks. The app requires access to all files on your device to perform its core functionality, which is to save WhatsApp stories. This access is strictly limited to the app's functionality and is not used for any other purposes. The app does not create any accounts and does not store any data on your device. By granting this permission, you are allowing the app to copy files from WhatsApp folder to a folder named 'Big Eye Stories'. No other permissions are requested or used by this app. By using this app, you agree to its terms and conditions. Please, click the informations icon to read the terms and conditions."),
                           ),
                           actions: [
@@ -165,8 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     );
-                    final Directory sourceDir = Directory(
-                        '/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/.Statuses/');
+                    final Directory sourceDir = Directory(dFolder);
                     final Directory targetDir =
                         Directory('/storage/emulated/0/$APP_NAME Stories/');
                     if (sourceDir.existsSync()) {
@@ -201,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           behavior: SnackBarBehavior.floating,
                           content: Center(
                             child: Text(
-                              "Sorry, we could not find WhatsApp content at the usual folder: /storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/.Statuses/ .",
+                              "Sorry, we could not find WhatsApp content at the usual folder: $dFolder .",
                               style: TextStyle(color: Colors.red, fontSize: 18),
                               textAlign: TextAlign.center,
                             ),
